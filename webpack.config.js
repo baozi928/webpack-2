@@ -3,6 +3,10 @@ var path = require('path');
 
 module.exports = {
   mode: 'production',
+  devtool:'inline-source-map',
+  devServer: {
+    contentBase: "./dist",
+  },
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
