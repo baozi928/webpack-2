@@ -1,26 +1,20 @@
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var path = require('path');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
+
+const base = require('./webpack.config.base.js')
 
 module.exports = {
-  mode: 'production',
-  devtool:'inline-source-map',
+    ...base,//把base的所有属性拿过来
+    devtool:'inline-source-map',
   devServer: {
     contentBase: "./dist",
   },
-  entry: './src/index.js',
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'index.[contenthash].js'
-  },
-  plugins: [new HtmlWebpackPlugin({
-        title: '派大星',
-        template: 'src/assets/index.html'
-   })],
    module: {
     rules: [
       {
         test: /\.css$/,
-        use: [ 'style-loader', 'css-loader' ]
+        use: [ 'style-loader', 'css-loader'],
       }
     ]
   }
