@@ -16,6 +16,10 @@ module.exports = {
    module: {
     rules: [
       {
+        test: /\.(png|svg|jpg|gif)$/i,
+        use:["file-loader"]
+      },
+      {
         test: /\.styl$/i,
         loader:['style-loader','css-loader','stylus-loader']
       },
